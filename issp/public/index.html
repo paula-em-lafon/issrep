@@ -1,0 +1,67 @@
+<html ng-app>
+<head>
+	<script src="js/angular.min.js">
+	</script>
+	<script src="/socket.io/socket.io.js"></script>
+</head>
+<body ng-controller="MainCtrl" bgcolor="#2E2E2E">
+	<a href="https://quasar106.odoo.com">
+		<img src="logo.png">
+	</a>
+	<!-- 
+	X: <input ng-model="coo.X"><br>
+	Y: <input ng-model="coo.Y">
+	<hr>
+	<button ng-click="send(coo)">Send</button>
+	-->
+	<center>
+		Tarjeta: {{idt}}, Version: {{ver}}
+		<table border="1px" WIDTH=400 HEIGHT=400>
+				<center>
+			<tr>
+				<td bgcolor="#90EE90"><h2>{{s1}}</h2></td>
+				<td bgcolor="red"><h2>{{s2}}</h2></td>
+			</tr>
+			<tr>
+				<td bgcolor="red"><h2>{{s3}}</h2></td>
+				<td bgcolor="#90EE90"><h2>{{s4}}</h2></td>
+			</tr>
+				</center>
+		</table>
+	</center>
+</body>
+</html>
+
+<script type="text/javascript">
+	function MainCtrl($scope)
+	{
+		$scope.socket = io.connect("http://localhost:3000");
+
+		$scope.socket.on("message", function(dato) {
+
+			$scope.$apply(function()
+	            {
+			$scope.idt = dato.idt;
+			$scope.ver = dato.ver;
+		
+
+			$scope.s1 = dato.s1;
+			$scope.s2 = dato.s2;
+			$scope.s3 = dato.s3;
+			$scope.s4 = dato.s4;
+
+	                //$scope.msg = data.t + " " + data.sensor + " " + data.val;
+	            });
+		});
+
+		
+	/*
+		$scope.send = function(p)
+		{
+			$scope.socket.emit('change', p);
+			$scope.msg = p.X + " " + p.Y;
+		}
+	*/
+	
+	}
+</script>

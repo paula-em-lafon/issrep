@@ -1,0 +1,159 @@
+{% load staticfiles %}
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>informacion</title>
+        <!--boton-->
+            <link rel="stylesheet" href="{% static 'css/botones.css' %}">     
+        <!--codigo boostrap-->   
+
+        <!-- Latest compiled and minified CSS -->
+            <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+
+        <!-- Optional theme -->
+            <link rel="stylesheet" href="{% static 'css/bootstrap-theme.min.css' %}">
+
+        <!-- Latest compiled and minified JavaScript -->
+            <script src="{% static 'js/bootstrap.min.js' %}"></script>
+
+            <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+            <script type="text/javascript">    
+
+$(function () {
+    $('#container').highcharts({
+        chart: {
+            type: 'column'
+        },
+        title: {
+            text: 'Informacion de Procesos '
+        },
+        xAxis: {
+            categories: [
+                'Proceso 1',
+                'Proceso 2',
+                'Proceso 3',
+                'Proceso 4',
+            ]
+        },
+        yAxis: [{
+            min: 0,
+            title: {
+                text: ''
+            }
+        }, {
+            title: {
+                text: ''
+            },
+            opposite: true
+        }],
+        legend: {
+            shadow: false
+        },
+        tooltip: {
+            shared: true
+        },
+        plotOptions: {
+            column: {
+                grouping: false,
+                shadow: false,
+                borderWidth: 0
+            }
+        },
+        series: [{
+            name: 'RACK-1 CABINA',
+            color: 'rgba(165,170,217,1)',
+            data: [150, 73, 20],
+            pointPadding: 0.3,
+            pointPlacement: -0.2
+        }, {
+            name: 'RACK-2 COLA',
+            color: 'rgba(126,86,134,.9)',
+            data: [140, 90, 40],
+            pointPadding: 0.4,
+            pointPlacement: -0.2
+        }, {
+            name: 'RACK-3 ALA',
+            color: 'rgba(248,161,63,1)',
+            data: [183.6, 178.8, 198.5],
+            pointPadding: 0.3,
+            pointPlacement: 0.2,
+            yAxis: 1
+        }, {
+            name: 'RACK-4 NARIZ',
+            color: 'rgba(186,60,61,.9)',
+            data: [203.6, 198.8, 208.5],
+            pointPadding: 0.4,
+            pointPlacement: 0.2,
+            yAxis: 1
+        }]
+    });
+});
+</script>
+	</head>
+        <body style="background:#2E2E30"> 
+                    <div>
+                        <table class="table">
+                            <th>
+                                <img src="{% static 'images/ISSP.JPG' %}" width="128" height="128">
+                            </th>
+                            <th>
+                                <P ALIGN="LEFT">
+                                <div id="header">
+                                    <ul class="nav">
+                                <li><a onclick="location.href='{% url 'home' %}'">Inicio</a></li>
+                                <li><a href="">Informacion</a>
+                                    <ul>
+                                <li><a onclick="location.href='{% url 'information'%}'">Informacion total</a></li>
+                                    </ul>
+                                 <li><a href="">Ayuda</a>
+                                    <ul>
+                                <li><a onclick="location.href='{% url 'information' %}'">Formas de Uso</a></li>
+                                    </ul>
+                                <li><a onclick="location.href='{% url 'home' %}">Salir</a></li>
+                                    </ul>
+                                </P Align="left">
+                            </th>    
+                        </table>
+                    </div>
+                            <script src="{% static 'js/highcharts.js' %}"></script>
+                            <script src="{% static 'js/exporting.js' %}"></script>
+                            <div id="container" style="min-width: 400px; height: 400px; max-width: 800px; margin: 0 auto"></div>           
+                </div>
+        </body>
+</html>
+
+
+
+
+
+
+
+
+    <!--
+	<body style="background:#2E2E30">
+             <div>
+                <table class="table">
+                    <th>
+                        <P ALIGN=LEFT><img src="IMG/ISSP.JPG" width="128" height="128"></P ALIGN=LEFT>
+                    </th>
+                    <th><center>
+                            <div id="header">
+                            <ul class="nav">
+                                <li><a onclick="location.href='index.htm'">Inicio</a></li>
+                                <li><a href="">Informacion</a>
+                            <ul>
+                                <li><a onclick="location.href='informacion.htm'">Informacion total</a></li>
+                            </ul>
+                                </li>
+                                <li><a href="">Ayuda</a></li>
+                                <li><a href="">Salir</a></li>
+                            </ul>
+                    </center></th>
+                </table>
+            </div>
+    <script src="../../js/highcharts.js"></script>
+    <script src="../../js/modules/exporting.js"></script>
+    <div id="container" style="min-width: 400px; height: 400px; margin: 0 auto"></div>
+	</body>
+</html>

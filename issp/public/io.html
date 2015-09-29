@@ -1,0 +1,19 @@
+
+<script src="/socket.io/socket.io.js"></script>
+
+<script>
+  var //chat = io.connect('http://localhost:1313/chat'),
+      news = io.connect('http://localhost:1313/news');
+  
+  /*
+  chat.on('connect', function () {
+    chat.emit('hi!');
+  });
+  */
+
+  news.on('news', function () {
+    	news.emit('woot');
+    	//console.log(data);
+  	}
+  );
+</script>

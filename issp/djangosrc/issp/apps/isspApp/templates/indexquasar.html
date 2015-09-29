@@ -1,0 +1,67 @@
+{% load staticfiles %}
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta >
+        <title>ISS</title>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+        <script type="text/javascript">
+$(function () {
+        $('#container').highcharts({
+            chart: {
+                plotBackgroundColor: null,
+                plotBorderWidth: null,
+                plotShadow: null,
+                type: 'pie'
+            },
+            title: {
+                text: 'ISS Intelligent Storage System'
+            },
+            tooltip: {
+                pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+            },
+            plotOptions: {
+                pie: {
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    dataLabels: {
+                        enabled: true,
+                        format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                    }
+                }
+            },
+            series: [{
+                name: "Porcentaje",
+                colorByPoint: true,
+                data: [{
+                    name: "RACK-1 CABINA ",
+                    y: 56.33
+
+                }, {
+                    name: "RACK-2 COLA",
+                    y: 24.03,
+                    sliced: true,
+                    selected: true
+                }]
+            }]
+        });
+    });
+</script>
+      </head>
+      <body style="background:#2E2E30">
+             <img src="{% static 'images/ISSP.JPG' %}" width="128" height="128" onclick="location.href='{% url 'home'%}'">
+                    <script src="{% static 'js/highcharts.js' %}"></script>
+                    <script src="{%static 'js/exporting.js' %}"></script>
+        <div id="container" style="min-width: 310px; height: 400px; max-width: 800px; margin: 0 auto"></div>
+    <br>
+        <center>
+            <p ALIGN=right>
+                <IMG src="{% static 'images/INFO.PNG' %}" width="50" height="80" onclick="location.href='{% url 'information'%}'">
+            <br>
+                <text><font color="#CEECF5"> Informacion </font></text> 
+            </br>
+            </p ALING=right> 
+        </center>
+    </br>
+        </body>
+</html>

@@ -1,0 +1,7 @@
+El sistema funciona en las siguientes cinco partes:
+	- Entrada: Python
+	- Base de datos: PostgreSQL
+	- Backend: Django
+	- Sensores: C, Pic
+	- frontend: node.js y ajax
+
